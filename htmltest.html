@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trivia Game!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <button id="start" type="reset">Start!</button>
+    <div id="timer"> </div>
+
+        <div id="question"></div>
+            <div id="answers">
+                <div class="btn-group-vertical">
+                    <button class="answer" id="answer1" id="a1"> </button>
+                    <button class="answer" id="answer2" id="a2"> </button>
+                    <button class="answer" id="answer3" id="a3"> </button>
+                    <button class="answer" id="answer4" id="a4"> </button>
+
+
+    </div>
+                <div id="message"><h1></h1>
+                    <span id="countdown"></span>
+</div>
+
+<script>
+    var questions = [{
+        q: "In which year were the Green Bay Packers Founded?",
+        c: ["1919", "1929", "1939", "1949"],
+        a: 0
+    }, {
+        q: "Which Packers player is affectionately known as 'The Golden Boy'?",
+        c: ["Paul Hornung", "Brett Favre", "Aaron Rodgers", "Brandon Chillar"],
+        a: 0
+    }, {
+        q: "How many NFL Championships were won by Packers Legend Bart Starr?",
+        c: ["1", "2", "4", "5"],
+        a: 3
+    }, {
+        q: "Which Green Bay Packer has the Widest Smile?",
+        c: ["Donald Driver", "Brandon Chillar", "Sterling Sharpe", "Randall Cobb"],
+        a: 0
+    }, {
+        q: "Which NFL Team did the Green Bay Packers defeat in Super Bowl XXXI?",
+        c: ["Steelers", "Broncos", "Patriots", "Browns"],
+        a: 1
+    }, {
+        q: "Who was the only Packers Player to record a sack in Super Bowl XLV?",
+        c: ["Clay Matthews", "AJ Hawk", "Frank Zombo", "Mike Daniels"],
+        a: 2
+    }];
+
+    $('#start').on("click", function () {
+        $("#start").hide();
+        question1();
+        console.log("started");
+    });
+
+    function reset() {
+
+        for (var i = 0; i < questions.length; i++) {
+            console.log(questions[i].q);
+            $("#question").text(questions[i].q);
+            var choices = [];
+            for (var j = 0; j < 4; j++) {
+                choices.text(questions[i].c[j]);
+                choices.addClass("choice");
+                $("#answers").append(choices);
+            }
+        }
+    }
+
+    function question1() {
+        $("#question").text(questions[0].q);
+        // choices.text(questions[0].c[j]);
+        $("#answer1").text(questions[0].c[0]);
+        $("#answer2").text(questions[0].c[1]);
+        $("#answer3").text(questions[0].c[2]);
+        $("#answer4").text(questions[0].c[3]);
+        $("#answer1").on("click", function () {
+            console.log("1919 clicked");
+            $("#message").text("Yes! Good Job");
+            //timer here
+            setTimeout(function(){
+                question2()
+            }, 3000);
+            // var countdown = 3;
+            // countdown --;
+            // $("#countdown").text(countdown)
+
+            // question2();
+
+        });
+        $("#answer2").on("click", function () {
+            console.log("1929 clicked");
+            $("#message").text("No! You are wrong! :(");
+            //timer here
+            setTimeout(function(){
+                question2()
+            }, 3000);
+            // question2();
+
+        });
+        $("#answer3").on("click", function () {
+            console.log("1939 clicked");
+            $("#message").text("No! You are wrong! :(");
+            //timer here
+            setTimeout(function(){
+                question2()
+            }, 3000);
+            // question2();
+
+        });
+        $("#answer4").on("click", function () {
+            console.log("1949 clicked");
+            $("#message").text("No! You are wrong! :(");
+            //timer here
+            setTimeout(function(){
+                question2()
+            }, 3000);
+            // question2();
+
+        });
+    }
+
+    function question2() {
+        $("#message").empty();
+        $("#question").text(questions[1].q);
+        // choices.text(questions[0].c[j]);
+        $("#answer1").text(questions[1].c[0]);
+        $("#answer2").text(questions[1].c[1]);
+        $("#answer3").text(questions[1].c[2]);
+        $("#answer4").text(questions[1].c[3]);
+        $("#answer1").on("click", function () {
+            console.log("a clicked");
+            $("#message").text("Yes! Good Job");
+            //timer here
+            setTimeout(function(){
+                question3()
+            }, 3000);
+            // question3();
+
+        });
+        $("#answer2").on("click", function () {
+            console.log("b clicked");
+            $("#message").text("No! You are wrong! :(");
+            //timer here
+            setTimeout(function(){
+                question3()
+            }, 3000);
+            // question3();
+
+        });
+        $("#answer3").on("click", function () {
+            console.log("c clicked");
+            $("#message").text("No! You are wrong! :(");
+            //timer here
+            setTimeout(function(){
+                question3()
+            }, 3000);
+            // question3();
+
+        });
+        $("#answer4").on("click", function () {
+            console.log("d clicked");
+            $("#message").text("No! You are wrong! :(");
+            //timer here
+            setTimeout(function(){
+                question3()
+            }, 3000);
+            // question3();
+
+        });
+
+    }
+
+    function question3() {
+        $("#message").empty();
+        $("#question").text(questions[2].q);
+        // choices.text(questions[0].c[j]);
+        $("#answer1").text(questions[2].c[0]);
+        $("#answer2").text(questions[2].c[1]);
+        $("#answer3").text(questions[2].c[2]);
+        $("#answer4").text(questions[2].c[3]);
+        $("#answer1").on("click", function () {
+            console.log("a clicked");
+            $("#message").text("No! You are wrong! :(");
+            //timer here
+            setTimeout(function(){
+                question4()
+            }, 3000);
+            // question4();
+
+        });
+        $("#answer2").on("click", function () {
+            console.log("b clicked");
+            $("#message").text("No! You are wrong! :(");
+            //timer here
+            setTimeout(function(){
+                question4()
+            }, 3000);
+            // question4();
+
+        });
+        $("#answer3").on("click", function () {
+            console.log("c clicked");
+            $("#message").text("No! You are wrong! :(");
+            //timer here
+            setTimeout(function(){
+                question4()
+            }, 3000);
+            // question4();
+
+        });
+        $("#answer4").on("click", function () {
+            console.log("d clicked");
+            $("#message").text("Yes! Good Job");
+            //timer here
+            setTimeout(function(){
+                question4()
+            }, 3000);
+            // question4();
+
+        });
+
+
+    }
+    function question4() {
+        $("#message").empty();
+        $("#question").text(questions[3].q);
+        // choices.text(questions[0].c[j]);
+        $("#answer1").text(questions[3].c[0]);
+        $("#answer2").text(questions[3].c[1]);
+        $("#answer3").text(questions[3].c[2]);
+        $("#answer4").text(questions[3].c[3]);
+        $("#answer1").on("click", function () {
+            console.log("a clicked");
+            $("#message").text("Yes! Good Job");
+            //timer here
+            setTimeout(function(){
+                question5()
+            }, 3000);
+            // question3();
+
+        });
+        $("#answer2").on("click", function () {
+            console.log("b clicked");
+            $("#message").text("No! You are wrong! :(");
+            //timer here
+            setTimeout(function(){
+                question5()
+            }, 3000);
+
+            // question3();
+
+        });
+        $("#answer3").on("click", function () {
+            console.log("c clicked");
+            $("#message").text("No! You are wrong! :(");
+            //timer here
+            setTimeout(function(){
+                question5()
+            }, 3000);
+            // question3();
+
+        });
+        $("#answer4").on("click", function () {
+            console.log("d clicked");
+            $("#message").text("No! You are wrong! :(");
+            //timer here
+            setTimeout(function(){
+                question5()
+            }, 3000);
+            // question4();
+
+        });
+
+
+    }
+    function question5() {
+        $("#message").empty();
+        $("#question").text(questions[4].q);
+        // choices.text(questions[0].c[j]);
+        $("#answer1").text(questions[4].c[0]);
+        $("#answer2").text(questions[4].c[1]);
+        $("#answer3").text(questions[4].c[2]);
+        $("#answer4").text(questions[4].c[3]);
+        $("#answer1").on("click", function () {
+            console.log("a clicked");
+            $("#message").text("No! You are wrong! :(");
+            //timer here
+            setTimeout(function(){
+                question6()
+            }, 3000);
+            // question3();
+
+        });
+        $("#answer2").on("click", function () {
+            console.log("b clicked");
+            $("#message").text("Yes! Good Job");
+            //timer here
+            setTimeout(function(){
+                question6()
+            }, 3000);
+            // question3();
+
+        });
+        $("#answer3").on("click", function () {
+            console.log("c clicked");
+            $("#message").text("No! You are wrong! :(");
+            //timer here
+            setTimeout(function(){
+                question6()
+            }, 3000);
+            // question3();
+
+        });
+        $("#answer4").on("click", function () {
+            console.log("d clicked");
+            $("#message").text("No! You are wrong! :(");
+            //timer here
+            setTimeout(function(){
+                question6()
+            }, 3000);
+            // question4();
+
+        });
+
+    }
+
+    function question6() {
+        $("#message").empty();
+        $("#question").text(questions[5].q);
+        // choices.text(questions[0].c[j]);
+        $("#answer1").text(questions[5].c[0]);
+        $("#answer2").text(questions[5].c[1]);
+        $("#answer3").text(questions[5].c[2]);
+        $("#answer4").text(questions[5].c[3]);
+        $("#answer1").on("click", function () {
+            console.log("a clicked");
+            $("#message").text("No! You are wrong! :(");
+            //timer here
+            // question3();
+
+        });
+        $("#answer2").on("click", function () {
+            console.log("b clicked");
+            $("#message").text("No! You are wrong! :(");
+            //timer here
+            // question3();
+
+        });
+        $("#answer3").on("click", function () {
+            console.log("c clicked");
+            $("#message").text("Yes! Good Job");
+            //timer here
+            // question3();
+
+        });
+        $("#answer4").on("click", function () {
+            console.log("d clicked");
+            $("#message").text("No! You are wrong! :(");
+            //timer here
+            // question4();
+
+        });
+
+    }
+
+
+</script>
+
+
+<script src="assets/javascript/app.js"></script>
+</body>
+</html>
