@@ -12,21 +12,29 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+            crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="container">
+    <img id="title" src="assets/images/TITLE.png">
     <button id="start" type="reset">Start!</button>
-    <div id="timer">
-        <div id="question">
-            <div id="answers">
+    <div id="timer"> </div>
 
-            </div>
+    <div id="question"></div>
+    <div id="answers">
+        <div class="btn-group-vertical">
+            <button class="answer" id="answer1" id="a1"> </button>
+            <button class="answer" id="answer2" id="a2"> </button>
+            <button class="answer" id="answer3" id="a3"> </button>
+            <button class="answer" id="answer4" id="a4"> </button>
+
         </div>
     </div>
+    <div id="message"><h1></h1>
+        <span id="countdown"></span>
+    </div>
+    <script src="assets/javascript/app.js"></script>
 </div>
-
-
-<script src="assets/javascript/app.js"></script>
 </body>
 </html>

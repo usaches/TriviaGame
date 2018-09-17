@@ -16,3 +16,25 @@ body {
     background-image: url("../images/wall.jpg");
     background-size: cover;
 }
+button {
+    background-color: yellow;
+    color: darkgreen;
+    font-family: "Bookman Old Style", serif;
+    font-size: 28px;
+
+}
+
+#question {
+    font-family: "Bookman Old Style", serif;
+    font-size: 35px;
+    color: yellow;
+    background-color: rgba(5, 5, 5, 0.5);
+}
+
+#message {
+    font-family: "Bookman Old Style", serif;
+    font-size: 35px;
+    color: yellow;
+    background-color: rgba(5, 5, 5, 0.5);
+
+}
