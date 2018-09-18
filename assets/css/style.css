@@ -38,3 +38,9 @@ button {
     background-color: rgba(5, 5, 5, 0.5);
 
 }
+#countdown {
+    font-family: "Bookman Old Style", serif;
+    font-size: 35px;
+    color: yellow;
+    /*background-color: rgba(5, 5, 5, 0.5);*/
+}

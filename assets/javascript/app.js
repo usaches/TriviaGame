@@ -28,16 +28,17 @@ $('.btn-group-vertical').hide();
 
 
 
-var correct1=0;
-var correct2=0;
-var correct3=0;
-var correct4=0;
-var correct5=0;
-var correct6=0;
-var incorrect =0;
+var correct1 = 0;
+var correct2 = 0;
+var correct3 = 0;
+var correct4 = 0;
+var correct5 = 0;
+var correct6 = 0;
+var incorrect = 0;
 $('#start').on("click", function () {
     $("#start").hide();
     question1();
+    timeLeft = 30;
     console.log("started");
     $('.btn-group-vertical').show();
     $('.vertical2').hide();
@@ -45,13 +46,14 @@ $('#start').on("click", function () {
     $('.vertical4').hide();
     $('.vertical5').hide();
     $('.vertical6').hide();
-    correct1=0;
-     correct2=0;
-     correct3=0;
-     correct4=0;
-     correct5=0;
-     correct6=0;
-     incorrect =0;
+    correct1 = 0;
+    correct2 = 0;
+    correct3 = 0;
+    correct4 = 0;
+    correct5 = 0;
+    correct6 = 0;
+    incorrect = 0;
+
 });
 
 // function reset() {
@@ -70,6 +72,17 @@ $('#start').on("click", function () {
 
 function question1() {
     $("#message").empty();
+    var timeLeft = 30;
+    var intervalId = setInterval(function () {
+
+
+        timeLeft--;
+        $("#countdown").text("Time Left: " + timeLeft);
+        if (timeLeft < 1) {
+            question2();
+
+        }
+    }, 1000);
     $('.vertical2').hide();
     $('.vertical3').hide();
     $('.vertical4').hide();
@@ -84,10 +97,11 @@ function question1() {
     $("#answer1").on("click", function () {
         console.log("1919 clicked");
         $("#message").text("Yes! Good Job");
-        correct1=1;
+        correct1 = 1;
+        clearInterval(intervalId);
 
         //timer here
-        setTimeout(function(){
+        setTimeout(function () {
             question2();
 
 
@@ -103,9 +117,10 @@ function question1() {
         console.log("1929 clicked");
         $("#message").text("No! You are wrong! :(            The right answer was A");
         //timer here
-        setTimeout(function(){
+        setTimeout(function () {
             question2()
         }, 1800);
+        clearInterval(intervalId);
         // question2();
 
     });
@@ -113,9 +128,10 @@ function question1() {
         console.log("1939 clicked");
         $("#message").text("No! You are wrong! :(            The right answer was A");
         //timer here
-        setTimeout(function(){
+        setTimeout(function () {
             question2()
         }, 1800);
+        clearInterval(intervalId);
         // question2();
 
     });
@@ -123,15 +139,29 @@ function question1() {
         console.log("1949 clicked");
         $("#message").text("No! You are wrong! :(            The right answer was A");
         //timer here
-        setTimeout(function(){
+        setTimeout(function () {
             question2()
         }, 1800);
+        clearInterval(intervalId);
         // question2();
 
     });
+
+
 }
 
 function question2() {
+    var timeLeft = 30;
+
+    var intervalId = setInterval(function () {
+
+        timeLeft--;
+        $("#countdown").text("Time Left: " + timeLeft);
+        if (timeLeft < 1) {
+            question3();
+
+        }
+    }, 1000);
     $('.vertical1').hide();
     $('.vertical2').show();
     $('.vertical3').hide();
@@ -149,11 +179,13 @@ function question2() {
     $("#answer11").on("click", function () {
         console.log("a clicked");
         $("#message").text("Yes! Good Job");
-        correct2=1;
+        correct2 = 1;
         //timer here
-        setTimeout(function(){
-            question3()
+        setTimeout(function () {
+            question3();
+
         }, 1800);
+        clearInterval(intervalId);
         // question3();
 
     });
@@ -161,9 +193,10 @@ function question2() {
         console.log("b clicked");
         $("#message").text("No! You are wrong! :(            The right answer was A");
         //timer here
-        setTimeout(function(){
+        setTimeout(function () {
             question3()
         }, 1800);
+        clearInterval(intervalId);
         // question3();
 
     });
@@ -171,9 +204,10 @@ function question2() {
         console.log("c clicked");
         $("#message").text("No! You are wrong! :(            The right answer was A");
         //timer here
-        setTimeout(function(){
+        setTimeout(function () {
             question3()
         }, 1800);
+        clearInterval(intervalId);
         // question3();
 
     });
@@ -181,9 +215,10 @@ function question2() {
         console.log("d clicked");
         $("#message").text("No! You are wrong! :(            The right answer was A");
         //timer here
-        setTimeout(function(){
+        setTimeout(function () {
             question3()
         }, 1800);
+        clearInterval(intervalId);
         // question3();
 
     });
@@ -191,7 +226,17 @@ function question2() {
 }
 
 function question3() {
+    var timeLeft = 30;
     $("#message").empty();
+    var intervalId = setInterval(function () {
+
+        timeLeft--;
+        $("#countdown").text("Time Left: " + timeLeft);
+        if (timeLeft < 1) {
+            question4();
+
+        }
+    }, 1000);
     $("#question").text(questions[2].q);
     $('.vertical1').hide();
     $('.vertical2').hide();
@@ -208,9 +253,10 @@ function question3() {
         console.log("a clicked");
         $("#message").text("No! You are wrong! :(            The right answer was D");
         //timer here
-        setTimeout(function(){
+        setTimeout(function () {
             question4()
         }, 1800);
+        clearInterval(intervalId);
         // question4();
 
     });
@@ -218,9 +264,10 @@ function question3() {
         console.log("b clicked");
         $("#message").text("No! You are wrong! :(            The right answer was D");
         //timer here
-        setTimeout(function(){
+        setTimeout(function () {
             question4()
         }, 1800);
+        clearInterval(intervalId);
         // question4();
 
     });
@@ -228,27 +275,31 @@ function question3() {
         console.log("c clicked");
         $("#message").text("No! You are wrong! :(            The right answer was D");
         //timer here
-        setTimeout(function(){
+        setTimeout(function () {
             question4()
         }, 1800);
+        clearInterval(intervalId);
         // question4();
 
     });
     $("#answer411").on("click", function () {
         console.log("d clicked");
         $("#message").text("Yes! Good Job");
-        correct3=1;
+        correct3 = 1;
         //timer here
-        setTimeout(function(){
+        setTimeout(function () {
             question4()
         }, 1800);
+        clearInterval(intervalId);
         // question4();
 
     });
 
 
 }
+
 function question4() {
+    var timeLeft = 30;
     $('.vertical1').hide();
     $('.vertical2').hide();
     $('.vertical4').show();
@@ -256,6 +307,15 @@ function question4() {
     $('.vertical5').hide();
     $('.vertical6').hide();
     $("#message").empty();
+    var intervalId = setInterval(function () {
+
+        timeLeft--;
+        $("#countdown").text("Time Left: " + timeLeft);
+        if (timeLeft < 1) {
+            question5();
+
+        }
+    }, 1000);
     $("#question").text(questions[3].q);
     // choices.text(questions[0].c[j]);
     $("#answer141").text(questions[3].c[0]);
@@ -265,11 +325,12 @@ function question4() {
     $("#answer141").on("click", function () {
         console.log("a clicked");
         $("#message").text("Yes! Good Job");
-        correct4=1;
+        correct4 = 1;
         //timer here
-        setTimeout(function(){
+        setTimeout(function () {
             question5()
         }, 1800);
+        clearInterval(intervalId);
         // question3();
 
     });
@@ -277,9 +338,10 @@ function question4() {
         console.log("b clicked");
         $("#message").text("No! You are wrong! :(            The right answer was A");
         //timer here
-        setTimeout(function(){
+        setTimeout(function () {
             question5()
         }, 1800);
+        clearInterval(intervalId);
 
         // question3();
 
@@ -288,9 +350,10 @@ function question4() {
         console.log("c clicked");
         $("#message").text("No! You are wrong! :(            The right answer was A");
         //timer here
-        setTimeout(function(){
+        setTimeout(function () {
             question5()
         }, 1800);
+        clearInterval(intervalId);
         // question3();
 
     });
@@ -298,16 +361,28 @@ function question4() {
         console.log("d clicked");
         $("#message").text("No! You are wrong! :(            The right answer was A");
         //timer here
-        setTimeout(function(){
+        setTimeout(function () {
             question5()
         }, 1800);
+        clearInterval(intervalId);
         // question4();
 
     });
 
 
 }
+
 function question5() {
+    var timeLeft = 30;
+    var intervalId = setInterval(function () {
+
+        timeLeft--;
+        $("#countdown").text("Time Left: " + timeLeft);
+        if (timeLeft < 1) {
+            question6();
+
+        }
+    }, 1000);
     $("#message").empty();
     $('.vertical1').hide();
     $('.vertical2').hide();
@@ -325,9 +400,11 @@ function question5() {
         console.log("a clicked");
         $("#message").text("No! You are wrong! :(            The right answer was C");
         //timer here
-        setTimeout(function(){
+        setTimeout(function () {
             question6()
         }, 1800);
+        clearInterval(intervalId);
+
         // question3();
 
     });
@@ -335,20 +412,22 @@ function question5() {
         console.log("b clicked");
         $("#message").text("No! You are wrong! :(            The right answer was C");
         //timer here
-        setTimeout(function(){
+        setTimeout(function () {
             question6()
         }, 1800);
+        clearInterval(intervalId);
         // question3();
 
     });
     $("#answer351").on("click", function () {
         console.log("c clicked");
         $("#message").text("Yes! Good Job");
-        correct5=1;
+        correct5 = 1;
         //timer here
-        setTimeout(function(){
+        setTimeout(function () {
             question6()
         }, 1800);
+        clearInterval(intervalId);
         // question3();
 
     });
@@ -356,9 +435,10 @@ function question5() {
         console.log("d clicked");
         $("#message").text("No! You are wrong! :(            The right answer was C");
         //timer here
-        setTimeout(function(){
+        setTimeout(function () {
             question6()
         }, 1800);
+        clearInterval(intervalId);
         // question4();
 
     });
@@ -366,6 +446,7 @@ function question5() {
 }
 
 function question6() {
+    var timeLeft = 30;
     $('.vertical1').hide();
     $('.vertical2').hide();
     $('.vertical6').show();
@@ -373,6 +454,15 @@ function question6() {
     $('.vertical5').hide();
     $('.vertical3').hide();
     $("#message").empty();
+    var intervalId = setInterval(function () {
+
+        timeLeft--;
+        $("#countdown").text("Time Left: " + timeLeft);
+        if (timeLeft < 1) {
+            finishedScreen();
+
+        }
+    }, 1000);
     $("#question").text(questions[5].q);
     // choices.text(questions[0].c[j]);
     $("#answer116").text(questions[5].c[0]);
@@ -383,9 +473,10 @@ function question6() {
         console.log("a clicked");
         $("#message").text("No! You are wrong! :(            The right answer was C");
         //timer here
-        setTimeout(function(){
+        setTimeout(function () {
             finishedScreen()
         }, 1800);
+        clearInterval(intervalId);
         // question3();
 
     });
@@ -393,19 +484,21 @@ function question6() {
         console.log("b clicked");
         $("#message").text("No! You are wrong! :(            The right answer was C");
         //timer here
-        setTimeout(function(){
+        setTimeout(function () {
             finishedScreen()
         }, 1800);
+        clearInterval(intervalId);
         // question3();
 
     });
     $("#answer316").on("click", function () {
         console.log("c clicked");
         $("#message").text("Yes! Good Job");
-        correct6=1;
-        setTimeout(function(){
+        correct6 = 1;
+        setTimeout(function () {
             finishedScreen()
         }, 1800);
+        clearInterval(intervalId);
         //timer here
         // question3();
 
@@ -414,20 +507,23 @@ function question6() {
         console.log("d clicked");
         $("#message").text("No! You are wrong! :(            The right answer was C");
         //timer here
-        setTimeout(function(){
+        setTimeout(function () {
             finishedScreen()
         }, 1800);
+        clearInterval(intervalId);
         // question4();
 
     });
-function finishedScreen() {
-    $("#start").show();
-    $("#message").text("Do you dare try again?");
-    console.log(correct);
-    $('.vertical6').hide();
-    var correct=correct1+correct2+correct3+correct4+correct5+correct6;
-    incorrect = 6-correct;
-    $("#question").text("Number Correct: " + correct +  "                 Number Incorrect: " + incorrect);
 
-}
+    function finishedScreen() {
+        $("#start").show();
+        clearInterval(intervalId);
+        $("#message").text("Do you dare try again?");
+
+        $('.vertical6').hide();
+        var correct = correct1 + correct2 + correct3 + correct4 + correct5 + correct6;
+        incorrect = 6 - correct;
+        $("#question").text("Number Correct: " + correct + "                 Number Incorrect: " + incorrect);
+
+    }
 }
