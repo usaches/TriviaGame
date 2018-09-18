@@ -28,28 +28,53 @@ $('.btn-group-vertical').hide();
 
 
 
+var correct1=0;
+var correct2=0;
+var correct3=0;
+var correct4=0;
+var correct5=0;
+var correct6=0;
+var incorrect =0;
 $('#start').on("click", function () {
     $("#start").hide();
     question1();
     console.log("started");
     $('.btn-group-vertical').show();
+    $('.vertical2').hide();
+    $('.vertical3').hide();
+    $('.vertical4').hide();
+    $('.vertical5').hide();
+    $('.vertical6').hide();
+    correct1=0;
+     correct2=0;
+     correct3=0;
+     correct4=0;
+     correct5=0;
+     correct6=0;
+     incorrect =0;
 });
 
-function reset() {
-
-    for (var i = 0; i < questions.length; i++) {
-        console.log(questions[i].q);
-        $("#question").text(questions[i].q);
-        var choices = [];
-        for (var j = 0; j < 4; j++) {
-            choices.text(questions[i].c[j]);
-            choices.addClass("choice");
-            $("#answers").append(choices);
-        }
-    }
-}
+// function reset() {
+//
+//     for (var i = 0; i < questions.length; i++) {
+//         console.log(questions[i].q);
+//         $("#question").text(questions[i].q);
+//         var choices = [];
+//         for (var j = 0; j < 4; j++) {
+//             choices.text(questions[i].c[j]);
+//             choices.addClass("choice");
+//             $("#answers").append(choices);
+//         }
+//     }
+// }
 
 function question1() {
+    $("#message").empty();
+    $('.vertical2').hide();
+    $('.vertical3').hide();
+    $('.vertical4').hide();
+    $('.vertical5').hide();
+    $('.vertical6').hide();
     $("#question").text(questions[0].q);
     // choices.text(questions[0].c[j]);
     $("#answer1").text(questions[0].c[0]);
@@ -59,10 +84,14 @@ function question1() {
     $("#answer1").on("click", function () {
         console.log("1919 clicked");
         $("#message").text("Yes! Good Job");
+        correct1=1;
+
         //timer here
         setTimeout(function(){
-            question2()
-        }, 3000);
+            question2();
+
+
+        }, 1800);
         // var countdown = 3;
         // countdown --;
         // $("#countdown").text(countdown)
@@ -72,81 +101,89 @@ function question1() {
     });
     $("#answer2").on("click", function () {
         console.log("1929 clicked");
-        $("#message").text("No! You are wrong! :(");
+        $("#message").text("No! You are wrong! :(            The right answer was A");
         //timer here
         setTimeout(function(){
             question2()
-        }, 3000);
+        }, 1800);
         // question2();
 
     });
     $("#answer3").on("click", function () {
         console.log("1939 clicked");
-        $("#message").text("No! You are wrong! :(");
+        $("#message").text("No! You are wrong! :(            The right answer was A");
         //timer here
         setTimeout(function(){
             question2()
-        }, 3000);
+        }, 1800);
         // question2();
 
     });
     $("#answer4").on("click", function () {
         console.log("1949 clicked");
-        $("#message").text("No! You are wrong! :(");
+        $("#message").text("No! You are wrong! :(            The right answer was A");
         //timer here
         setTimeout(function(){
             question2()
-        }, 3000);
+        }, 1800);
         // question2();
 
     });
 }
 
 function question2() {
+    $('.vertical1').hide();
+    $('.vertical2').show();
+    $('.vertical3').hide();
+    $('.vertical4').hide();
+    $('.vertical5').hide();
+    $('.vertical6').hide();
     $("#message").empty();
     $("#question").text(questions[1].q);
     // choices.text(questions[0].c[j]);
-    $("#answer1").text(questions[1].c[0]);
-    $("#answer2").text(questions[1].c[1]);
-    $("#answer3").text(questions[1].c[2]);
-    $("#answer4").text(questions[1].c[3]);
-    $("#answer1").on("click", function () {
+
+    $("#answer11").text(questions[1].c[0]);
+    $("#answer21").text(questions[1].c[1]);
+    $("#answer31").text(questions[1].c[2]);
+    $("#answer41").text(questions[1].c[3]);
+    $("#answer11").on("click", function () {
         console.log("a clicked");
         $("#message").text("Yes! Good Job");
+        correct2=1;
         //timer here
         setTimeout(function(){
             question3()
-        }, 3000);
+        }, 1800);
         // question3();
 
     });
-    $("#answer2").on("click", function () {
+    $("#answer21").on("click", function () {
         console.log("b clicked");
-        $("#message").text("No! You are wrong! :(");
+        $("#message").text("No! You are wrong! :(            The right answer was A");
         //timer here
         setTimeout(function(){
             question3()
-        }, 3000);
+        }, 1800);
         // question3();
 
     });
-    $("#answer3").on("click", function () {
+    $("#answer31").on("click", function () {
         console.log("c clicked");
-        $("#message").text("No! You are wrong! :(");
+        $("#message").text("No! You are wrong! :(            The right answer was A");
         //timer here
         setTimeout(function(){
             question3()
-        }, 3000);
+        }, 1800);
         // question3();
 
     });
-    $("#answer4").on("click", function () {
+    $("#answer41").on("click", function () {
         console.log("d clicked");
-        $("#message").text("No! You are wrong! :(");
+        $("#message").text("No! You are wrong! :(            The right answer was A");
         //timer here
         setTimeout(function(){
             question3()
-        }, 3000);
+        }, 1800);
         // question3();
 
     });
@@ -156,48 +193,55 @@ function question2() {
 function question3() {
     $("#message").empty();
     $("#question").text(questions[2].q);
+    $('.vertical1').hide();
+    $('.vertical2').hide();
+    $('.vertical3').show();
+    $('.vertical4').hide();
+    $('.vertical5').hide();
+    $('.vertical6').hide();
     // choices.text(questions[0].c[j]);
-    $("#answer1").text(questions[2].c[0]);
-    $("#answer2").text(questions[2].c[1]);
-    $("#answer3").text(questions[2].c[2]);
-    $("#answer4").text(questions[2].c[3]);
-    $("#answer1").on("click", function () {
+    $("#answer111").text(questions[2].c[0]);
+    $("#answer211").text(questions[2].c[1]);
+    $("#answer311").text(questions[2].c[2]);
+    $("#answer411").text(questions[2].c[3]);
+    $("#answer111").on("click", function () {
         console.log("a clicked");
-        $("#message").text("No! You are wrong! :(");
+        $("#message").text("No! You are wrong! :(            The right answer was D");
         //timer here
         setTimeout(function(){
             question4()
-        }, 3000);
+        }, 1800);
         // question4();
 
     });
-    $("#answer2").on("click", function () {
+    $("#answer211").on("click", function () {
         console.log("b clicked");
-        $("#message").text("No! You are wrong! :(");
+        $("#message").text("No! You are wrong! :(            The right answer was D");
         //timer here
         setTimeout(function(){
             question4()
-        }, 3000);
+        }, 1800);
         // question4();
 
     });
-    $("#answer3").on("click", function () {
+    $("#answer311").on("click", function () {
         console.log("c clicked");
-        $("#message").text("No! You are wrong! :(");
+        $("#message").text("No! You are wrong! :(            The right answer was D");
         //timer here
         setTimeout(function(){
             question4()
-        }, 3000);
+        }, 1800);
         // question4();
 
     });
-    $("#answer4").on("click", function () {
+    $("#answer411").on("click", function () {
         console.log("d clicked");
         $("#message").text("Yes! Good Job");
+        correct3=1;
         //timer here
         setTimeout(function(){
             question4()
-        }, 3000);
+        }, 1800);
         // question4();
 
     });
@@ -205,51 +249,58 @@ function question3() {
 
 }
 function question4() {
+    $('.vertical1').hide();
+    $('.vertical2').hide();
+    $('.vertical4').show();
+    $('.vertical3').hide();
+    $('.vertical5').hide();
+    $('.vertical6').hide();
     $("#message").empty();
     $("#question").text(questions[3].q);
     // choices.text(questions[0].c[j]);
-    $("#answer1").text(questions[3].c[0]);
-    $("#answer2").text(questions[3].c[1]);
-    $("#answer3").text(questions[3].c[2]);
-    $("#answer4").text(questions[3].c[3]);
-    $("#answer1").on("click", function () {
+    $("#answer141").text(questions[3].c[0]);
+    $("#answer241").text(questions[3].c[1]);
+    $("#answer341").text(questions[3].c[2]);
+    $("#answer441").text(questions[3].c[3]);
+    $("#answer141").on("click", function () {
         console.log("a clicked");
         $("#message").text("Yes! Good Job");
+        correct4=1;
         //timer here
         setTimeout(function(){
             question5()
-        }, 3000);
+        }, 1800);
         // question3();
 
     });
-    $("#answer2").on("click", function () {
+    $("#answer241").on("click", function () {
         console.log("b clicked");
-        $("#message").text("No! You are wrong! :(");
+        $("#message").text("No! You are wrong! :(            The right answer was A");
         //timer here
         setTimeout(function(){
             question5()
-        }, 3000);
+        }, 1800);
 
         // question3();
 
     });
-    $("#answer3").on("click", function () {
+    $("#answer341").on("click", function () {
         console.log("c clicked");
-        $("#message").text("No! You are wrong! :(");
+        $("#message").text("No! You are wrong! :(            The right answer was A");
         //timer here
         setTimeout(function(){
             question5()
-        }, 3000);
+        }, 1800);
         // question3();
 
     });
-    $("#answer4").on("click", function () {
+    $("#answer441").on("click", function () {
         console.log("d clicked");
-        $("#message").text("No! You are wrong! :(");
+        $("#message").text("No! You are wrong! :(            The right answer was A");
         //timer here
         setTimeout(function(){
             question5()
-        }, 3000);
+        }, 1800);
         // question4();
 
     });
@@ -258,49 +309,56 @@ function question4() {
 }
 function question5() {
     $("#message").empty();
+    $('.vertical1').hide();
+    $('.vertical2').hide();
+    $('.vertical5').show();
+    $('.vertical4').hide();
+    $('.vertical3').hide();
+    $('.vertical6').hide();
     $("#question").text(questions[4].q);
     // choices.text(questions[0].c[j]);
-    $("#answer1").text(questions[4].c[0]);
-    $("#answer2").text(questions[4].c[1]);
-    $("#answer3").text(questions[4].c[2]);
-    $("#answer4").text(questions[4].c[3]);
-    $("#answer1").on("click", function () {
+    $("#answer151").text(questions[4].c[0]);
+    $("#answer251").text(questions[4].c[1]);
+    $("#answer351").text(questions[4].c[2]);
+    $("#answer451").text(questions[4].c[3]);
+    $("#answer151").on("click", function () {
         console.log("a clicked");
-        $("#message").text("No! You are wrong! :(");
+        $("#message").text("No! You are wrong! :(            The right answer was C");
         //timer here
         setTimeout(function(){
             question6()
-        }, 3000);
+        }, 1800);
         // question3();
 
     });
-    $("#answer2").on("click", function () {
+    $("#answer251").on("click", function () {
         console.log("b clicked");
-        $("#message").text("No! You are wrong! :(");
+        $("#message").text("No! You are wrong! :(            The right answer was C");
         //timer here
         setTimeout(function(){
             question6()
-        }, 3000);
+        }, 1800);
         // question3();
 
     });
-    $("#answer3").on("click", function () {
+    $("#answer351").on("click", function () {
         console.log("c clicked");
         $("#message").text("Yes! Good Job");
+        correct5=1;
         //timer here
         setTimeout(function(){
             question6()
-        }, 3000);
+        }, 1800);
         // question3();
 
     });
-    $("#answer4").on("click", function () {
+    $("#answer451").on("click", function () {
         console.log("d clicked");
-        $("#message").text("No! You are wrong! :(");
+        $("#message").text("No! You are wrong! :(            The right answer was C");
         //timer here
         setTimeout(function(){
             question6()
-        }, 3000);
+        }, 1800);
         // question4();
 
     });
@@ -308,40 +366,68 @@ function question5() {
 }
 
 function question6() {
+    $('.vertical1').hide();
+    $('.vertical2').hide();
+    $('.vertical6').show();
+    $('.vertical4').hide();
+    $('.vertical5').hide();
+    $('.vertical3').hide();
     $("#message").empty();
     $("#question").text(questions[5].q);
     // choices.text(questions[0].c[j]);
-    $("#answer1").text(questions[5].c[0]);
-    $("#answer2").text(questions[5].c[1]);
-    $("#answer3").text(questions[5].c[2]);
-    $("#answer4").text(questions[5].c[3]);
-    $("#answer1").on("click", function () {
+    $("#answer116").text(questions[5].c[0]);
+    $("#answer216").text(questions[5].c[1]);
+    $("#answer316").text(questions[5].c[2]);
+    $("#answer416").text(questions[5].c[3]);
+    $("#answer116").on("click", function () {
         console.log("a clicked");
-        $("#message").text("No! You are wrong! :(");
+        $("#message").text("No! You are wrong! :(            The right answer was C");
         //timer here
+        setTimeout(function(){
+            finishedScreen()
+        }, 1800);
         // question3();
 
     });
-    $("#answer2").on("click", function () {
+    $("#answer216").on("click", function () {
         console.log("b clicked");
-        $("#message").text("No! You are wrong! :(");
+        $("#message").text("No! You are wrong! :(            The right answer was C");
         //timer here
+        setTimeout(function(){
+            finishedScreen()
+        }, 1800);
         // question3();
 
     });
-    $("#answer3").on("click", function () {
+    $("#answer316").on("click", function () {
         console.log("c clicked");
         $("#message").text("Yes! Good Job");
+        correct6=1;
+        setTimeout(function(){
+            finishedScreen()
+        }, 1800);
         //timer here
         // question3();
 
     });
-    $("#answer4").on("click", function () {
+    $("#answer416").on("click", function () {
         console.log("d clicked");
-        $("#message").text("No! You are wrong! :(");
+        $("#message").text("No! You are wrong! :(            The right answer was C");
         //timer here
+        setTimeout(function(){
+            finishedScreen()
+        }, 1800);
         // question4();
 
     });
+function finishedScreen() {
+    $("#start").show();
+    $("#message").text("Do you dare try again?");
+    console.log(correct);
+    $('.vertical6').hide();
+    var correct=correct1+correct2+correct3+correct4+correct5+correct6;
+    incorrect = 6-correct;
+    $("#question").text("Number Correct: " + correct +  "                 Number Incorrect: " + incorrect);
 
+}
 }
