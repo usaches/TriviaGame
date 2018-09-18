@@ -79,7 +79,9 @@ function question1() {
         timeLeft--;
         $("#countdown").text("Time Left: " + timeLeft);
         if (timeLeft < 1) {
+            clearInterval(intervalId);
             question2();
+
 
         }
     }, 1000);
@@ -158,6 +160,7 @@ function question2() {
         timeLeft--;
         $("#countdown").text("Time Left: " + timeLeft);
         if (timeLeft < 1) {
+            clearInterval(intervalId);
             question3();
 
         }
@@ -233,6 +236,7 @@ function question3() {
         timeLeft--;
         $("#countdown").text("Time Left: " + timeLeft);
         if (timeLeft < 1) {
+            clearInterval(intervalId);
             question4();
 
         }
@@ -312,6 +316,7 @@ function question4() {
         timeLeft--;
         $("#countdown").text("Time Left: " + timeLeft);
         if (timeLeft < 1) {
+            clearInterval(intervalId);
             question5();
 
         }
@@ -379,6 +384,7 @@ function question5() {
         timeLeft--;
         $("#countdown").text("Time Left: " + timeLeft);
         if (timeLeft < 1) {
+            clearInterval(intervalId);
             question6();
 
         }
@@ -459,6 +465,7 @@ function question6() {
         timeLeft--;
         $("#countdown").text("Time Left: " + timeLeft);
         if (timeLeft < 1) {
+            clearInterval(intervalId);
             finishedScreen();
 
         }
@@ -519,6 +526,7 @@ function question6() {
         $("#start").show();
         clearInterval(intervalId);
         $("#message").text("Do you dare try again?");
+
 
         $('.vertical6').hide();
         var correct = correct1 + correct2 + correct3 + correct4 + correct5 + correct6;
